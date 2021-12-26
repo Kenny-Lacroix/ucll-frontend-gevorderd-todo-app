@@ -1,0 +1,18 @@
+{
+  "name": "todo-server",
+  "version": "1.0.0",
+  "description": "backend server for the todo app of front end gevorderd",
+  "main": "server.js",
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Javascript"
+  ],
+  "author": "Kenny-Lacroix & David-Urting",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

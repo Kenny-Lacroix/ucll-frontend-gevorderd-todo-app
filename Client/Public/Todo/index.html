@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="Styles/index.css" />
+    <title>To Do App</title>
+  </head>
+  <body>
+    <div id="content">
+      <nav id="nav">
+        <img id="img" src="./Images/logo.svg" alt="ucll logo" />
+        <a id="addItemBtn" class="btn"><i class="bi bi-clipboard-plus"></i> Add Todo</a>
+      </nav>
+      <main>
+        <h1 id="title">Todo App</h1>
+        <hr />
+        <div id="interface">
+          <div id="todoList">
+            <!-- Add items here -->
+            <p>rjgoelqehjm</p>
+          </div>
+          <div id="todoExtra">
+            <form>
+              <label for="titel">Titel:</label><br />
+              <input type="text" id="titel" name="titel" /><br />
+              <label for="description">Description:</label><br />
+              <input type="text" id="description" name="description" /><br />
+              <label for="Person">Person:</label><br />
+              <input type="text" id="Person" name="Person" /><br />
+              <label for="deadline">Deadline:</label><br />
+              <input type="date" id="deadline" name="deadline" /><br />
+              <input type="submit" value="Submit" id="submitBtn" />
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="Javascript/index.js"></script>
+  </body>
+</html>
