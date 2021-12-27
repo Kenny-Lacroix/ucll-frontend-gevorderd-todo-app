@@ -5,7 +5,7 @@ const PATH = require("path");
 const APP = X();
 const PORT = 2021;
 
-const todoItems = ["test"];
+const todoItems = [];
 
 // ---------------------------------------
 // #endregion
@@ -18,6 +18,9 @@ APP.use("/todo", X.static(PATH.join(__dirname, "../Client/Public/Todo")));
 APP.use(X.json());
 
 /* ---ENDPOINTS--- */
+APP.get("/todo/get", (req, res) => {
+  res.send(JSON.stringify(todoItems));
+});
 APP.post("/todo/create", (req, res) => {
   let response = {};
   try {

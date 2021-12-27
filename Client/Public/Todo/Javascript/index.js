@@ -2,6 +2,8 @@ import { ToDo } from "./Modules/Todo.js";
 
 // #region Functions
 // ---------------------------------------
+
+/* --- Create New Item --- */
 const createForm = () => {
   /* --- Show create new todo form --- */
   let formHtml = ` 
@@ -36,12 +38,14 @@ const submitForm = () => {
       let res = todo.AddItem(todo);
       document.querySelector("#todoExtra").innerHTML = "";
       console.log("Item added");
+      reloadData();
     } else {
-      alert("All fields must be filled in");
+      alert("All fields must be filled in!");
     }
   });
 };
 
+/* --- Main Functions --- */
 const addNewToDoListener = () => {
   document.querySelector("#addItemBtn").addEventListener("click", () => {
     console.log("Create todo clicked");
@@ -50,13 +54,30 @@ const addNewToDoListener = () => {
   });
 };
 
-const getStartData = () => {};
+const reloadData = async () => {
+  let res = await fetch("http://localhost:2021/todo/get");
+  let data = await res.json();
+  console.log("response data: ", data);
+  updateHtml(data);
+  return data;
+};
+
+const getStartData = () => {
+  console.log("test");
+  reloadData().then((res) => {
+    console.log("res: ", res);
+    if (res.length == 0) {
+      console.log("No items yet");
+    }
+  });
+};
 
 const updateHtml = () => {};
+
 const addEventListeners = () => {};
 
 // ---------------------------------------
 // #endregion
 
 addNewToDoListener();
-// getStartData();
+getStartData();
