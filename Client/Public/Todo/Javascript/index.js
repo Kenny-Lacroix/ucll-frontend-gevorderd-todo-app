@@ -2,7 +2,6 @@ import { ToDo } from "./Modules/Todo.js";
 
 // #region Functions
 // ---------------------------------------
-
 /* --- Show Edit/Create Form --- */
 const createForm = (existingItem) => {
   /* --- Show create/update new todo form --- */
@@ -13,7 +12,7 @@ const createForm = (existingItem) => {
       <label for="cardTitle">Title:</label><br />
       <input type="text" id="cardTitle" name="cardTitle" value="${existingItem._Title}"/><br />
       <label for="description">Description:</label><br />
-      <input type="text" id="description" name="description" value="${existingItem._Description}"/><br />
+      <textarea id="description" cols="21" rows="5"  name="description">${existingItem._Description}</textarea><br />
       <label for="person">Person:</label><br />
       <input type="text" id="person" name="person" value="${existingItem._AssignedPerson}"/><br />
       <label for="deadline">Deadline:</label><br />
@@ -28,7 +27,7 @@ const createForm = (existingItem) => {
       <label for="cardTitle">Title:</label><br />
       <input type="text" id="cardTitle" name="cardTitle"/><br />
       <label for="description">Description:</label><br />
-      <input type="text" id="description" name="description"/><br />
+      <textarea  type="text" id="description" cols="21" rows="5"  name="description" ></textarea><br />
       <label for="person">Person:</label><br />
       <input type="text" id="person" name="person"/><br />
       <label for="deadline">Deadline:</label><br />
@@ -113,6 +112,40 @@ const createStatusListener = async (todo, i) => {
     loadData();
   }
 };
+/* --- Show Detail Modal --- */
+const createDetailListener = (todo, todoList) => {
+  let modalString = /* html */ `
+    <div id="cardDetails" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="closeModal" class="close">&times;</span>
+          <h2>${todo._Title}</h2>
+        </div>
+      <div class="modal-body">
+        <p>${todo._Description}</p>
+        <p>${todo._AssignedPerson}</p>
+        <p>${todo._Status}</p>
+        <p>${todo._Deadline}</p>
+      </div>
+    </div>
+  </div>
+  `;
+  document.querySelector("main").innerHTML += modalString;
+
+  let modal = document.querySelector("#cardDetails");
+  let closeBtn = document.querySelector("#closeModal");
+  modal.style.display = "block";
+
+  closeBtn.onclick = () => {
+    modal.parentNode.removeChild(modal);
+  };
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.parentNode.removeChild(modal);
+    }
+  };
+  addEventListeners(todoList);
+};
 // ---------------------------------------
 // #endregion
 
@@ -148,10 +181,10 @@ const updateHtml = (todoList) => {
           <p class="cardDate">Deadline: ${todo._Deadline}</p>
         </div>
         <div class="tools">
-        <!--<i class="bi bi-check-square-fill"></i>-->
         <i id="status${i}" class="${cssClass}"></i>
-        <i id="trash${i}" class="bi bi-trash-fill"></i>
         <i id="edit${i}" class="bi bi-wrench"></i>
+        <i id="detail${i}"class="bi bi-search"></i>
+        <i id="trash${i}" class="bi bi-trash-fill"></i>
         </div>
       </div>
     `;
@@ -172,6 +205,9 @@ const addEventListeners = (todoList) => {
     });
     document.querySelector(`#status${i}`).addEventListener("click", async () => {
       createStatusListener(todo, i);
+    });
+    document.querySelector(`#detail${i}`).addEventListener("click", () => {
+      createDetailListener(todo, todoList);
     });
   });
 };

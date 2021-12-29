@@ -28,7 +28,9 @@ label {
   font-size: 20px;
 }
 
-input {
+input,
+textarea {
+  font-family: "Helvetica", "Arial", sans-serif;
   margin-bottom: 15px;
   font-size: 20px;
 }
@@ -102,8 +104,16 @@ input {
   margin-right: 10px;
 }
 
+.bi-wrench {
+  color: #000000;
+}
+
 .bi-trash-fill {
-  color: #9fdaf9;
+  color: #e30147;
+}
+
+.bi-search {
+  color: #002757;
 }
 
 .card {
@@ -160,5 +170,81 @@ input {
 a.btn {
   font-size: 25px;
   padding: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 10vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #858585;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #404040;
+  width: 50%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: #ffffff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #002757;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #e30147;
+  color: #ffffff;
+}
+
+.modal-body {
+  padding: 2px 16px;
 }
 /*# sourceMappingURL=index.css.map */
