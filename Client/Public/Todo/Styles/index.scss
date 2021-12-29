@@ -32,7 +32,7 @@ h1 {
   flex-direction: row;
 }
 #img {
-  width: 180px;
+  width: 15vw;
   margin-bottom: 10px;
 }
 #nav {
@@ -42,6 +42,7 @@ h1 {
   background-color: $ucllPink;
   padding: 10px;
   height: 98.4vh;
+  max-width: 20vw;
 }
 #title {
   padding-left: 25px;
@@ -53,23 +54,33 @@ h1 {
 }
 #todoList {
   flex-grow: 3;
+  max-width: 60vw;
 }
 #todoExtra {
   flex-grow: 1;
+  width: 10vw;
 }
-.bi-trash-fill {
+.bi {
   cursor: pointer;
 }
-
+.bi-plus-square-fill {
+  margin-right: 10px;
+}
+.bi-trash-fill {
+  color: $ucllLightBlue;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 6px 16px;
-  width: 30%;
+  padding: 6px 6px 6px 16px;
+  width: 50%;
   background-color: $accent;
   font-size: 25px;
   font-style: italic;
   color: $lightGray;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .cardTitle {
   font-weight: bold;
@@ -85,6 +96,10 @@ h1 {
   font-size: 20px;
   line-height: 30px;
 }
+.tools {
+  padding-top: 4px;
+}
+
 .btn {
   background-color: $accent;
   text-decoration: none;
@@ -99,7 +114,4 @@ h1 {
 a.btn {
   font-size: 25px;
   padding: 10px;
-}
-.bi {
-  margin-right: 5px;
 }

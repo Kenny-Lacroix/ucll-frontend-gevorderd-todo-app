@@ -21,17 +21,40 @@ APP.use(X.json());
 APP.get("/todo/get", (req, res) => {
   res.send(JSON.stringify(todoItems));
 });
+
 APP.post("/todo/create", (req, res) => {
   let response = {};
   try {
     const { data } = req.body;
-    console.log(data);
     todoItems.push(data);
     response = { status: "OK" };
   } catch (error) {
     response = { status: "NOK" };
   }
 
+  return res.send(JSON.stringify(response));
+});
+
+APP.put("/todo/update", (req, res) => {
+  let response = {};
+  try {
+    todoItems[req.body.arrayId] = req.body.data;
+    response = { status: "OK" };
+  } catch (error) {
+    response = { status: "NOK" };
+  }
+  return res.send(JSON.stringify(response));
+});
+
+APP.delete("/todo/delete", (req, res) => {
+  let response = {};
+  try {
+    const { data } = req.body;
+    todoItems.splice(data, 1);
+    response = { status: "OK" };
+  } catch (error) {
+    response = { status: "NOK" };
+  }
   return res.send(JSON.stringify(response));
 });
 
