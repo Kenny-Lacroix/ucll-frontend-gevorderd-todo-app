@@ -122,9 +122,13 @@ const createDetailListener = (todo, todoList) => {
           <h2>${todo._Title}</h2>
         </div>
       <div class="modal-body">
-        <p>${todo._Description}</p>
-        <p>${todo._AssignedPerson}</p>
-        <p>${todo._Status}</p>
+      <label>Description:</label>
+      <p>${todo._Description}</p>
+      <label>Person:</label>
+      <p>${todo._AssignedPerson}</p>
+      <label>Status:</label>
+      <p>${todo._Status}</p>
+      <label>Deadline:</label>
         <p>${todo._Deadline}</p>
       </div>
     </div>

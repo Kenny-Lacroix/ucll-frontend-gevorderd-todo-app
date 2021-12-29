@@ -131,6 +131,7 @@ a.btn {
 }
 
 .modal {
+  font-size: 40px;
   display: none;
   position: fixed;
   z-index: 1;
@@ -144,6 +145,7 @@ a.btn {
 }
 
 .modal-content {
+  font-size: 30px;
   position: relative;
   background-color: $accent;
   margin: auto;
@@ -184,7 +186,7 @@ a.btn {
 .close {
   color: $textColor;
   float: right;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
 }
 
