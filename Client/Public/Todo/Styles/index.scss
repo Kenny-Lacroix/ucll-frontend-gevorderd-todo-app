@@ -14,7 +14,6 @@ body {
   background-color: $background;
   color: $textColor;
   font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 30px;
 }
 hr {
   margin-left: 20px;
@@ -24,15 +23,22 @@ main {
   flex-grow: 1;
 }
 h1 {
+  font-size: 60px;
   margin-top: 10px;
 }
-
+label {
+  font-size: 20px;
+}
+input {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
 #content {
   display: flex;
   flex-direction: row;
 }
 #img {
-  width: 15vw;
+  width: 90%;
   margin-bottom: 10px;
 }
 #nav {
@@ -42,7 +48,7 @@ h1 {
   background-color: $ucllPink;
   padding: 10px;
   height: 98.4vh;
-  max-width: 20vw;
+  max-width: 200px;
 }
 #title {
   padding-left: 25px;
@@ -53,7 +59,7 @@ h1 {
   flex-direction: row;
 }
 #todoList {
-  flex-grow: 3;
+  flex-grow: 1;
   max-width: 60vw;
 }
 #todoExtra {
@@ -79,7 +85,6 @@ h1 {
   color: $lightGray;
   margin-bottom: 30px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 .cardTitle {

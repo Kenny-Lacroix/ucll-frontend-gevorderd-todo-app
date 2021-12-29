@@ -20,6 +20,7 @@ const createForm = (existingItem) => {
       <input type="date" id="deadline" name="deadline" value="${existingItem._Deadline}"/><br />
     </form>
     <button id="submitBtn">Update</button>
+    <button id="closeBtn">Cancel</button>
     `;
   } else {
     formHtml = /*html*/ ` 
@@ -34,6 +35,7 @@ const createForm = (existingItem) => {
       <input type="date" id="deadline" name="deadline" /><br />
     </form>
     <button id="submitBtn">Create</button>
+    <button id="closeBtn">Cancel</button>
     `;
   }
 
@@ -42,7 +44,12 @@ const createForm = (existingItem) => {
 };
 /* --- Handle form submit (Edit/Create) --- */
 const submitForm = (type, id) => {
-  /* --- Add eventlistener --- */
+  /* --- Add eventlisteners --- */
+  document.querySelector("#closeBtn").addEventListener("click", () => {
+    document.querySelector("#todoExtra").innerHTML = "";
+    console.log("Hide Form");
+  });
+
   document.querySelector("#submitBtn").addEventListener("click", async () => {
     let correctInput = true;
     let title, description, person, deadline;
@@ -73,6 +80,8 @@ const submitForm = (type, id) => {
           let result = await todo.EditItem(id, todo);
           if (result === "OK") {
             console.log(`UPDATE item ${id} Succesful`);
+            document.querySelector("#todoExtra").innerHTML = "";
+            console.log("Hide Form");
             loadData();
           }
           break;

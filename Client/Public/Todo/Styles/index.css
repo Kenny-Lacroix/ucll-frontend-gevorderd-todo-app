@@ -6,7 +6,6 @@ body {
   background-color: #404040;
   color: #ffffff;
   font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 30px;
 }
 
 hr {
@@ -21,7 +20,17 @@ main {
 }
 
 h1 {
+  font-size: 60px;
   margin-top: 10px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input {
+  margin-bottom: 15px;
+  font-size: 20px;
 }
 
 #content {
@@ -35,7 +44,7 @@ h1 {
 }
 
 #img {
-  width: 15vw;
+  width: 90%;
   margin-bottom: 10px;
 }
 
@@ -53,7 +62,7 @@ h1 {
   background-color: #e30147;
   padding: 10px;
   height: 98.4vh;
-  max-width: 20vw;
+  max-width: 200px;
 }
 
 #title {
@@ -72,9 +81,9 @@ h1 {
 }
 
 #todoList {
-  -webkit-box-flex: 3;
-      -ms-flex-positive: 3;
-          flex-grow: 3;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   max-width: 60vw;
 }
 
@@ -110,10 +119,6 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
