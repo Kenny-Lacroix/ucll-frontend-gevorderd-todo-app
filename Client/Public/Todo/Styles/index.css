@@ -86,6 +86,35 @@ h1 {
   cursor: pointer;
 }
 
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 6px 16px;
+  width: 30%;
+  background-color: #858585;
+  font-size: 25px;
+  font-style: italic;
+  color: #dddddd;
+  margin-bottom: 30px;
+}
+
+.cardTitle {
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: underline;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.cardPerson {
+  font-weight: bold;
+}
+
+.cardDate {
+  font-size: 20px;
+  line-height: 30px;
+}
+
 .btn {
   background-color: #858585;
   text-decoration: none;

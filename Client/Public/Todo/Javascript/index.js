@@ -20,25 +20,32 @@ const createForm = () => {
     <button id="submitBtn">Add item</button>
     `;
   document.querySelector("#todoExtra").innerHTML = formHtml;
-  console.log("Showed Form");
+  console.log("Created Form");
 };
 const submitForm = () => {
   /* --- Add eventlistener and callback to creation --- */
-  document.querySelector("#submitBtn").addEventListener("click", () => {
+  document.querySelector("#submitBtn").addEventListener("click", async () => {
     let correctInput = true;
     let title, description, person, deadline;
 
+    /* --- Read and validate input (if else shorthand) --- */
     document.querySelector("#cardTitle").value ? (title = document.querySelector("#cardTitle").value) : (correctInput = false);
     document.querySelector("#description").value ? (description = document.querySelector("#description").value) : (correctInput = false);
     document.querySelector("#person").value ? (person = document.querySelector("#person").value) : (correctInput = false);
     document.querySelector("#deadline").value ? (deadline = document.querySelector("#deadline").value) : (correctInput = false);
+    console.log("Read Data");
 
+    /* --- Create ToDo and POST and Call loadData --- */
     if (correctInput) {
+      console.log("Data validated");
       let todo = new ToDo(title, description, person, deadline);
-      let res = todo.AddItem(todo);
-      document.querySelector("#todoExtra").innerHTML = "";
-      console.log("Item added");
-      reloadData();
+      let res = await todo.AddItem(todo);
+      if (res === "OK") {
+        console.log("POST DATA Succesful");
+        document.querySelector("#todoExtra").innerHTML = "";
+        console.log("Hide Form");
+        loadData();
+      }
     } else {
       alert("All fields must be filled in!");
     }
@@ -54,30 +61,34 @@ const addNewToDoListener = () => {
   });
 };
 
-const reloadData = async () => {
+const loadData = async () => {
   let res = await fetch("http://localhost:2021/todo/get");
   let data = await res.json();
-  console.log("response data: ", data);
+  console.log("GET data: ", data);
   updateHtml(data);
   return data;
 };
 
-const getStartData = () => {
-  console.log("test");
-  reloadData().then((res) => {
-    console.log("res: ", res);
-    if (res.length == 0) {
-      console.log("No items yet");
-    }
+const updateHtml = (todoList) => {
+  let htmlString = "";
+  todoList.map((todo, i) => {
+    htmlString += /*html */ `
+      <div class="card">
+        <h4 class="cardTitle">${todo._Title}</h4>
+        <p class="cardPerson">${todo._AssignedPerson}</p>
+        <p class="cardStatus">Status: ${todo._Status}</p>
+        <p class="cardDate">Deadline: ${todo._Deadline}</p>
+      </div>
+    `;
   });
+  document.querySelector("#todoList").innerHTML = htmlString;
+  console.log("HTML Cards Created");
 };
-
-const updateHtml = () => {};
 
 const addEventListeners = () => {};
 
 // ---------------------------------------
 // #endregion
 
+loadData();
 addNewToDoListener();
-getStartData();

@@ -61,6 +61,30 @@ h1 {
   cursor: pointer;
 }
 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 6px 16px;
+  width: 30%;
+  background-color: $accent;
+  font-size: 25px;
+  font-style: italic;
+  color: $lightGray;
+  margin-bottom: 30px;
+}
+.cardTitle {
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: underline;
+  font-size: 30px;
+  color: $textColor;
+}
+.cardPerson {
+  font-weight: bold;
+}
+.cardDate {
+  font-size: 20px;
+  line-height: 30px;
+}
 .btn {
   background-color: $accent;
   text-decoration: none;

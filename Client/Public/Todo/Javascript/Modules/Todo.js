@@ -4,7 +4,7 @@ export class ToDo {
     this._Description = description;
     this._AssignedPerson = assignedPerson;
     this._Deadline = deadline;
-    this._status = "Ongoing";
+    this._Status = "Ongoing";
   }
 
   async AddItem(todo) {
@@ -18,7 +18,7 @@ export class ToDo {
     });
     let responseMessage = await res.json();
     if (responseMessage.status === "OK") {
-      return;
+      return responseMessage.status;
     }
   }
 
